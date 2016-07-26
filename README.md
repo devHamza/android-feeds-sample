@@ -4,7 +4,7 @@
 - This sample initiate MVP and reactive programming 
 ### TODO
  
-##### Manage image cache using picasso and okhttp
+##### Manage image cache using picasso and okhttp 
 
 ##### Add dragger 2 for dependency injection : 
 - Inject presenters 
