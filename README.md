@@ -1,4 +1,4 @@
-# Android sample feed app
+# Android feed app sample
 ### Description
 - This repo contains android app sample with a clean architecture using Agera, Retrofit, retrolamda .. 
 - This sample initiate MVP and reactive programming 
