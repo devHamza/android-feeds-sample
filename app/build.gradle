@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'android-apt'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.hhsain.jobapp"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "boolean", "JOB", "false"
+        buildConfigField "boolean", "CANDIDAT", "false"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    productFlavors {
+        candidat {
+            applicationIdSuffix ".candidat"
+            versionCode 1
+            versionName = "1.0"
+            buildConfigField "boolean", "JOB", "true"
+            buildConfigField "boolean", "CANDIDAT", "false"
+
+            buildConfigField "String", "CURRENT_USER", '"candidat"'
+        }
+        recruteur {
+            applicationIdSuffix ".recruteur"
+            versionCode 1
+            versionName = "1.0"
+            buildConfigField "boolean", "JOB", "false"
+            buildConfigField "boolean", "CANDIDAT", "true"
+
+            buildConfigField "String", "CURRENT_USER", '"recruteur"'
+
+        }
+        admin{
+            applicationIdSuffix ".admin"
+            versionCode 1
+            versionName = "1.0"
+            buildConfigField "boolean", "JOB", "true"
+            buildConfigField "boolean", "CANDIDAT", "true"
+
+            buildConfigField "String", "CURRENT_USER", '"admin"'
+        }
+    }
+
+compileOptions {
+    targetCompatibility 1.8
+    sourceCompatibility 1.8
+}
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+
+    //Google Agera
+    compile 'com.google.android.agera:agera:1.1.0'
+
+    //Picasso : Image rendering
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //Retrofit : Http calls
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
+
+
+    // DI
+    //compile 'com.google.dagger:dagger:2.5'
+    //apt 'com.google.dagger:dagger-compiler:2.5'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //UI class
+    compile 'com.android.support:cardview-v7:23.0.+'
+    compile 'com.android.support:recyclerview-v7:23.0.+'
+
+    //Bind views
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+
+
+
+}
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Job Feeds</string>
+    <string name="exp_label">Ex : %1$s an(s)</string>
+    <string name="rec_label">Recommander (%1$s)</string>
+    <string name="job_date_label">Posté le : %1$s</string>
+
+    <string name="loading">Chargement</string>
+    <string name="loading_text">Chargement des données en cours ...</string>
+
+
+</resources>
